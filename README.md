@@ -16,11 +16,11 @@
 ### 1. リポジトリをクローン
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/LLamaFactory-Unsloth-template.git
+git clone git@github.com:Yuji181181/LLamaFactory-Unsloth-template.git
 cd LLamaFactory-Unsloth-template
 ```
 
-### 2. 環境構築（ワンコマンド）
+### 2. 環境構築
 
 ```bash
 chmod +x setup.sh
@@ -35,7 +35,7 @@ chmod +x setup.sh
 
 **所要時間**: 約5-10分
 
-### 3. 環境のアクティベート
+### 3. アクティベート
 
 ```bash
 cd LLaMA-Factory
@@ -54,36 +54,30 @@ llamafactory-cli webui
 
 Web UIの上部にある **Booster** ドロップダウンで `unsloth` を選択してください。
 
-これだけで、**2倍高速なトレーニング**が可能になります！
+---
 
-## ディレクトリ構造
+## ディレクトリ構成
 
+```text
+/home/haseg/GitHub/LLamaFactory-Unsloth-template/
+├── LLaMA-Factory/        (LLaMA-Factory本体)
+│   └── data/             <-- 2. 合成データセット配置場所 (.json / .jsonl)
+│       └── dataset_info.json  <-- データセット登録用ファイル
+├── models/               <-- 3. 事前学習済み モデル配置場所
+├── scripts/              <-- 1. 合成データ生成プログラム配置場所
+└── setup.sh              
 ```
-LLamaFactory-Unsloth-template/
-├── README.md                      # このファイル
-├── setup.sh                       # 環境構築スクリプト
-├── setup_synthetic_data_dirs.sh   # 合成データディレクトリ作成
-│
-├── docs/                          # ドキュメント
-│   ├── QUICKSTART_UNSLOTH.md
-│   ├── CHECKLIST.md
-│   ├── TEMPLATE_USAGE.md
-│   ├── SYNTHETIC_DATA_WORKFLOW.md
-│   ├── PREFERENCE_LEARNING_GUIDE.md
-│   ├── UNSLOTH_GUIDE.md
-│   └── UNSLOTH_WEBUI_GUIDE.md
-│
-├── configs/                       # 設定ファイルテンプレート
-│   ├── sft_config.yaml           # SFT設定
-│   ├── dpo_config.yaml           # DPO設定
-│   └── simpo_config.yaml         # SimPO設定（推奨）
-│
-├── synthetic_data/                # 合成データ作成用
-│   ├── generators/               # データ生成スクリプト
-│   ├── quality_check/            # 品質チェック
-│   ├── raw/                      # 生データ
-│   ├── processed/                # 処理済みデータ
-│   └── notebooks/                # 分析用ノートブック
-│
-└── data/                         # データセット配置用
-```
+
+### 1. 合成データ生成プログラム
+- **配置場所**: `scripts/` ディレクトリ
+- ここにデータ作成用のPythonスクリプトなどを配置します。
+
+### 2. 作成した合成データ
+- **配置場所**: `LLaMA-Factory/data/` ディレクトリ
+- 生成したデータ（例: `my_synth_data.json`）はここに移動または保存します。
+- 保存後、同ディレクトリ内の `dataset_info.json` にデータセット情報を登録する必要があります。
+
+### 3. 事前学習済みモデル
+- **配置場所**: `models/` ディレクトリ
+- UnslothやHugging Faceからダウンロードしたモデルフォルダをここに配置します。
+- Web UIの "Model path" には、このディレクトリ内の各モデルフォルダの絶対パス（例: `/home/haseg/GitHub/LLamaFactory-Unsloth-template/models/Llama-3-8B-Unsloth`）を指定します。
