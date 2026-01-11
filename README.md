@@ -56,16 +56,6 @@ Web UIの上部にある **Booster** ドロップダウンで `unsloth` を選�
 
 これだけで、**2倍高速なトレーニング**が可能になります！🎉
 
-## ドキュメント
-
-詳細なガイドは `docs/` ディレクトリにあります：
-
-- **[Getting Started](docs/GETTING_STARTED.md)** - 環境構築から最初のトレーニングまで
-- **[Unslothガイド](docs/UNSLOTH.md)** - Unslothの使い方（Web UI & コード）
-- **[選好学習ガイド](docs/PREFERENCE_LEARNING_GUIDE.md)** - DPO, SimPO, ORPOの比較と使い方
-- **[合成データワークフロー](docs/SYNTHETIC_DATA_WORKFLOW.md)** - データ生成からトレーニングまで
-- **[チェックリスト](docs/CHECKLIST.md)** - セットアップから提出までの完全チェックリスト
-
 ## ディレクトリ構造
 
 ```
