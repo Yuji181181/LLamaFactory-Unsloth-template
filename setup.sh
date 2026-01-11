@@ -157,8 +157,9 @@ log_info "これには数分かかる場合があります..."
 
 # Unsloth のインストール
 uv add "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+uv add "peft<0.12.0"
 
-log_success "Unsloth のインストールが完了"
+log_success "Unsloth のインストールと依存関係の調整が完了"
 
 echo ""
 
@@ -225,7 +226,7 @@ echo "   cd LLaMA-Factory"
 echo "   source .venv/bin/activate"
 echo ""
 echo "2. Web UIを起動:"
-echo "   llamafactory-cli webui"
+echo "   DISABLE_VERSION_CHECK=1 llamafactory-cli webui"
 echo ""
 echo "3. ブラウザで http://127.0.0.1:7860 を開く"
 echo ""

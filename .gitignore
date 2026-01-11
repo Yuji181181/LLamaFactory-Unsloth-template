@@ -52,6 +52,10 @@ checkpoints/
 *.pth
 *.pt
 
+# Models (keep directory structure but ignore contents)
+models/*
+!models/.gitkeep
+
 # Logs
 logs/
 *.log
@@ -86,5 +90,6 @@ Thumbs.db
 .DS_Store
 
 # LLaMA-Factory specific
+LLaMA-Factory/
 evaluation/
 *.lock

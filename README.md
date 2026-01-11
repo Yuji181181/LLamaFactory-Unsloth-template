@@ -45,7 +45,7 @@ source .venv/bin/activate
 ### 4. Web UIの起動
 
 ```bash
-llamafactory-cli webui
+DISABLE_VERSION_CHECK=1 llamafactory-cli webui
 ```
 
 ブラウザで `http://127.0.0.1:7860` が自動的に開きます。
@@ -53,6 +53,29 @@ llamafactory-cli webui
 ### 5. Unslothを有効化
 
 Web UIの上部にある **Booster** ドロップダウンで `unsloth` を選択してください。
+
+### 6. モデルのダウンロード
+
+付属のスクリプトを使って、Unslothの軽量モデルなどをダウンロードします。
+
+1. `download_models.sh` を開き、`MODEL_ID` をダウンロードしたいモデルに変更します。
+   ```bash
+   MODEL_ID="unsloth/Llama-3.2-3B-Instruct"
+   ```
+2. スクリプトを実行します。
+   ```bash
+   chmod +x download_models.sh
+   ./download_models.sh
+   ```
+
+### 7. Web UIでのモデル設定
+
+ダウンロードしたモデルを使用するには、Web UIで以下のように設定します。
+
+1.  **Model name**: （空欄またはCustom）
+2.  **Model path**: ダウンロードしたモデルの絶対パスを入力
+    *   例: `/home/haseg/GitHub/LLamaFactory-Unsloth-template/models/Llama-3.2-3B-Instruct`
+    *   ※右側のフォルダアイコンから選択すると確実です。
 
 ---
 
@@ -81,3 +104,5 @@ Web UIの上部にある **Booster** ドロップダウンで `unsloth` を選�
 - **配置場所**: `models/` ディレクトリ
 - UnslothやHugging Faceからダウンロードしたモデルフォルダをここに配置します。
 - Web UIの "Model path" には、このディレクトリ内の各モデルフォルダの絶対パス（例: `/home/haseg/GitHub/LLamaFactory-Unsloth-template/models/Llama-3-8B-Unsloth`）を指定します。
+
+---
