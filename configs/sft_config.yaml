@@ -1,0 +1,67 @@
+### SFT (Supervised Fine-Tuning) 設定ファイル
+# Unsloth + LLaMA-Factory
+
+### モデル設定
+model_name_or_path: unsloth/llama-3.2-3b-bnb-4bit
+stage: sft
+do_train: true
+finetuning_type: lora
+
+### LoRA パラメータ
+lora_target: all
+lora_rank: 32
+lora_alpha: 32
+lora_dropout: 0.05
+
+### 量子化設定
+quantization_bit: 4
+quantization_method: bnb
+
+### Unsloth最適化
+use_unsloth: true
+use_unsloth_gc: true
+
+### データセット設定
+dataset: competition_sft  # LLaMA-Factory/data/competition_sft/
+template: llama3
+cutoff_len: 2048
+val_size: 0.1
+overwrite_cache: true
+
+### トレーニングパラメータ
+output_dir: outputs/sft_model
+overwrite_output_dir: true
+
+# バッチサイズ
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+per_device_eval_batch_size: 2
+
+# 学習率
+learning_rate: 2.0e-4
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+
+# エポック数
+num_train_epochs: 3
+
+### 最適化設定
+optim: adamw_torch
+fp16: true
+max_grad_norm: 1.0
+
+### ロギングと保存
+logging_steps: 10
+save_steps: 100
+save_total_limit: 3
+
+# 評価
+eval_strategy: steps
+eval_steps: 100
+
+### その他
+seed: 42
+report_to: none
+dataloader_num_workers: 4
+remove_unused_columns: false
+save_safetensors: true
