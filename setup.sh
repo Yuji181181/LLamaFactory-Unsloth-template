@@ -236,7 +236,9 @@ echo ""
 echo "📚 ドキュメント:"
 echo "  - クイックスタート: QUICKSTART_UNSLOTH.md"
 echo "  - Web UI ガイド: UNSLOTH_WEBUI_GUIDE.md"
-echo "  - 詳細ガイド: UNSLOTH_GUIDE.md"
+echo "  - 詳細ガイド: UNSLOTH_GUIDE.md
+  - データ生成ガイド: OPENROUTER_GUIDE.md
+"
 echo ""
 
 log_success "Happy Fine-tuning! 🦥⚡"
